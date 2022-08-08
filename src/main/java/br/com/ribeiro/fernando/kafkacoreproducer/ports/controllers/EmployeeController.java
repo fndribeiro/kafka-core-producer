@@ -1,8 +1,10 @@
 package br.com.ribeiro.fernando.kafkacoreproducer.ports.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,8 +25,8 @@ public class EmployeeController {
 	}
 
 	@PostMapping
-	public void sendMessage(@RequestBody Employee employee) throws JsonProcessingException {
-		employeeProducer.sendMessage(employee);
+	public void sendMessage(@RequestHeader(value = HttpHeaders.USER_AGENT) String userAgent, @RequestBody Employee employee) throws JsonProcessingException {
+		employeeProducer.sendMessage(employee, userAgent);
 	}
 	
 }

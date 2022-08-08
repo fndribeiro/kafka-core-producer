@@ -2,6 +2,8 @@ package br.com.ribeiro.fernando.kafkacoreproducer.domain.entities;
 
 import java.util.Objects;
 
+import com.mongodb.lang.NonNull;
+
 import br.com.ribeiro.fernando.kafkacoreproducer.domain.valueobjects.EmployeeType;
 
 public class Employee {
@@ -10,28 +12,22 @@ public class Employee {
 	private String email;
 	private EmployeeType type;
 	
+	public Employee(@NonNull String name, @NonNull String email, @NonNull EmployeeType type) {
+		this.name = name;
+		this.email = email;
+		this.type = type;
+	}
+
 	public String getName() {
 		return name;
-	}
-	
-	public void setName(String name) {
-		this.name = name;
 	}
 	
 	public String getEmail() {
 		return email;
 	}
 	
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	
 	public EmployeeType getType() {
 		return type;
-	}
-
-	public void setType(EmployeeType type) {
-		this.type = type;
 	}
 
 	@Override
