@@ -2,6 +2,8 @@
 
 Demo project that implements producer message samples with Spring Boot and Apache Kafka.
 
+It uses a free Kafka cloud server at CloudCarafka as host.
+
 ## Features:
 
 - Json messages
